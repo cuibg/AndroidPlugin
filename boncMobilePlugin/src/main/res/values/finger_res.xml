@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?><!--指纹识别的resoures资源-->
+<resources>
+    <color name="finger_divide_color">#000000</color> <!--分隔线的颜色-->
+    <color name="finger_text_color">#000000</color><!--dialog所有字体显示颜色-->
+    <string name="finger_distinguish_prompt">\"企信\"指纹登录</string> <!--提示显示字体-->
+    <string name="finger_verification">验证已有指纹</string>
+    <string name="finger_cancel">取消</string>
+    <string name="finger_retry">再试一次</string>
+</resources>

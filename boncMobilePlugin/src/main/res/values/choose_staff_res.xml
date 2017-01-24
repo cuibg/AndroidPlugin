@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--背景色-->
+    <color name="grade_view_bg_color">#f7f7f7</color><!--整个view背景色-->
+    <color name="grade_navigation_color">#ffff7200</color><!--tab的颜色-->
+    <color name="grade_search_bg_color">#33000000</color><!--搜索框背景色-->
+    <color name="group_name_lin_bg_color">#ffffff</color><!--显示部门的背景-->
+    <color name="grade_splite_color">#ebebeb</color><!--分割线颜色-->
+    <color name="grade_num_del_textbg_color">#ffffff</color><!--显示具体人员信息字体的背景色-->
+    <color name="grade_commit_bg_color">#fa5555</color><!--提交背景色-->
+
+    <!--adapter中背景色-->
+    <color name="adapter_group_bg_color">#ffffff</color><!--组名item背景色-->
+    <color name="adapter_user_bg_color">#ffffff</color><!--组名人员背景色-->
+    <color name="grade_uncommit_bg_color">#999999</color><!--未提交背景色-->
+    <color name="adapter_splite_color">#ebebeb</color><!--item 分割线颜色-->
+    <!--字体色-->
+    <color name="search_text_color">#ffffff</color> <!--搜索框字体颜色-->
+    <color name="grade_back_text_color">#ffffff</color><!--右上角返回字体颜色-->
+    <color name="group_name_text_color">#666666</color><!--部门字体颜色-->
+    <color name="grade_num_del_text_color">#808080</color><!--人员详情字体颜色-->
+    <color name="grade_num_text_color">#ffffff</color><!--小红点字体颜色-->
+    <color name="grade_commit_text_color">#ffffff</color><!--提交字体颜色-->
+    <!--item字体颜色-->
+    <color name="adapter_group_text_color">#666666</color><!--item部门字体颜色-->
+    <color name="adapter_user_text_color">#666666</color><!--item用户字体颜色-->
+    <color name="adapter_num_text_color">#666666</color><!--item工号字体颜色-->
+
+    <!--drawable的名字-->
+    <string name="grade_navigation_back">ic_navigation_back</string><!--左上角返回的图片-->
+    <string name="grade_group_default">grade_group_default</string><!--显示部门名称左侧默认图片-->
+    <string name="grade_group_back">grade_group_back</string><!--部门左侧返回时显示图标-->
+    <string name="bottom_check_image">grade_bottom_image</string><!--选中人时底部展现的图标-->
+    <string name="buttom_uncheck_image">grade_unbottom_image</string><!--未选中人时底部展现图标-->
+
+    <!--adapter默认图标-->
+    <string name="grade_group_image">grade_group_image</string><!--item 组名头像-->
+    <string name="group_person_image">group_person_image</string><!--人员默认头像-->
+    <string name="group_right_image">group_right_image</string><!--item 右侧小箭头-->
+    <string name="person_delete_image">sign_setting_time_delete</string><!--item 右侧删除图标-->
+    <!--shape-->
+    <string name="grade_checkbox_shape">sign_time_check_selector</string><!--item checkbox-->
+    <string name="grade_num_text_shape">grade_num_text_bg</string><!--右下角小红点的图标shape-->
+
+</resources>

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/gradview_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f7f7f7">
+    <!--头部-->
+    <LinearLayout
+        android:id="@+id/grade_back_lin"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="#ffff7200"
+        android:minHeight="50dp"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <ImageView
+            android:id="@+id/grade_image_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:scaleType="centerInside" />
+
+
+        <EditText
+            android:id="@+id/grade_search_text"
+            android:layout_width="0dp"
+            android:layout_height="27dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="0.85"
+            android:background="#33000000"
+            android:drawablePadding="10dp"
+            android:hint="请在此输入..."
+            android:imeOptions="actionSearch"
+            android:paddingLeft="20dp"
+            android:singleLine="true"
+            android:textColor="#666666"
+            android:textColorHint="#ffffff"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/grade_back_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.15"
+            android:gravity="center"
+            android:text="返回"
+            android:textColor="#ffffff"
+            android:textSize="14sp"
+            android:visibility="visible" />
+    </LinearLayout>
+    <!--下部布局-->
+    <RelativeLayout
+        android:id="@+id/grade_number_rel"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:orientation="vertical">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#d7d7d7" />
+
+                <TextView
+                    android:id="@+id/grade_number_detail_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="49dp"
+                    android:layout_weight="2"
+                    android:background="#ffffff"
+                    android:gravity="center"
+                    android:textColor="#808080"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/grade_commit_text"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#fa5555"
+                android:gravity="center"
+                android:text="完成"
+                android:textColor="#ffffff"
+                android:textSize="17sp" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/grade_head_number_rel"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="25dp">
+
+            <ImageView
+                android:id="@+id/grade_bottom_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true" />
+
+            <TextView
+                android:id="@+id/grade_number_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:gravity="center"
+                android:minHeight="20dp"
+                android:minWidth="20dp"
+                android:textColor="@android:color/white"
+                android:textSize="11sp" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <!--显示人员数和提交的布局-->
+    <LinearLayout
+        android:id="@+id/grade_center_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/grade_number_rel"
+        android:layout_below="@id/grade_back_lin"
+        android:layout_margin="15dp"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:id="@+id/grade_group_name_lin"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@android:color/white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <!--RecycleverView头部-->
+
+            <ImageView
+                android:id="@+id/grade_group_back_image"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_marginLeft="15dp"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:id="@+id/grade_group_name_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="13dp"
+                android:textColor="#808080"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/grade_split_line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="10dp"
+            android:background="#ebebeb" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/grade_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+</RelativeLayout>
