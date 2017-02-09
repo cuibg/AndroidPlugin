@@ -36,7 +36,7 @@ public class FingerCallback extends FingerprintManagerCompat.AuthenticationCallb
         if (dialogFragment != null) {
             View view = dialogFragment.getView();
             if (view != null) {
-                TextView textView = (TextView) view.findViewById(MResource.getIdByName(context, "id", "fingure_prompt_text"));
+                TextView textView = (TextView) view.findViewById(MResource.getIdByName(context, "id", "finger_prompt_text"));
                 textView.setText(errString + "");
                 fingerInstance.setVerifyAnimation(textView);
             }
@@ -51,8 +51,8 @@ public class FingerCallback extends FingerprintManagerCompat.AuthenticationCallb
         }
         if (dialogFragment != null) {
             View view = dialogFragment.getView();
-            TextView textView = (TextView) view.findViewById(MResource.getIdByName(context, "id", "fingure_prompt_text"));
-            textView.setText(context.getResources().getString(MResource.getIdByName(context, "id", "finger_retry")));
+            TextView textView = (TextView) view.findViewById(MResource.getIdByName(context, "id", "finger_prompt_text"));
+            textView.setText(context.getResources().getString(MResource.getIdByName(context, "string", "finger_retry")));
             fingerInstance.setVerifyAnimation(textView);
         }
     }

@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:paddingBottom="10dp"
     android:paddingTop="10dp"
-    tools:context="www.bonc.com.myapplication.CustomFingerDialog">
+    tools:context="com.bonc.mobile.plugin.fingerplugin.CustomFingerDialog">
 
     <ImageView
         android:layout_width="30dp"
@@ -16,7 +16,7 @@
         android:src="@mipmap/ic_launcher" />
 
     <TextView
-        android:id="@+id/fingure_prompt_text"
+        android:id="@+id/finger_prompt_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="5dp"
