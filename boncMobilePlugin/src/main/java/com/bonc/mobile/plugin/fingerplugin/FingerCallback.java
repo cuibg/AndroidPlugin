@@ -30,6 +30,7 @@ public class FingerCallback extends FingerprintManagerCompat.AuthenticationCallb
     @Override
     public void onAuthenticationError(int errMsgId, CharSequence errString) {
         super.onAuthenticationError(errMsgId, errString);
+        //errMsgId 5 代表取消，7代表错误次数过多
         if (fingerInterface != null) {
             fingerInterface.setOnFingerError(errMsgId, errString);
         }

@@ -19,6 +19,8 @@ import java.util.regex.Pattern;
  */
 
 public class SmsContentObserver extends ContentObserver {
+    private  String containContent;
+
     public SmsContentObserver(Handler handler) {
         super(handler);
     }
@@ -35,10 +37,11 @@ public class SmsContentObserver extends ContentObserver {
      * @param handler
      * @param mobileNumber
      */
-    public SmsContentObserver(Context context, Handler handler, String mobileNumber) {
+    public SmsContentObserver(Context context, Handler handler, String mobileNumber,String containContent) {
         super(handler);
         this.context = context;
         this.mobileNumber = mobileNumber;
+        this.containContent = containContent;
     }
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
@@ -57,11 +60,13 @@ public class SmsContentObserver extends ContentObserver {
         if (cursor != null) {// 如果短信为未读模式
             if (cursor.moveToFirst()) {
                 String smsbody = cursor.getString(cursor.getColumnIndex("body"));
-                String regEx = "[^0-9]";
-                Pattern p = Pattern.compile(regEx);
-                Matcher m = p.matcher(smsbody.toString());
-                smsContent = m.replaceAll("").trim().toString();
-                msgContentListener.setMsgContent(smsContent);
+                if(!TextUtils.isEmpty(smsbody) && smsbody.contains(containContent)){
+                    String regEx = "[^0-9]";
+                    Pattern p = Pattern.compile(regEx);
+                    Matcher m = p.matcher(smsbody.toString());
+                    smsContent = m.replaceAll("").trim().toString();
+                    msgContentListener.setMsgContent(smsContent);
+                }
             }
         }
         if (!cursor.isClosed()) {

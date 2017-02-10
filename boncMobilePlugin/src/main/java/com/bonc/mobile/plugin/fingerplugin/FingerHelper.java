@@ -7,7 +7,6 @@ import android.content.pm.PackageManager;
 import android.hardware.fingerprint.FingerprintManager;
 import android.os.Build;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.hardware.fingerprint.FingerprintManagerCompat;
 import android.support.v4.os.CancellationSignal;
@@ -25,6 +24,7 @@ import static android.content.Context.FINGERPRINT_SERVICE;
 public class FingerHelper {
     private static FingerHelper fingerHelper = null;
     private CancellationSignal mCancellationSignal;
+    private CustomFingerDialog customFingerDialog;
 
     public static FingerHelper getFingerInstance() {
         if (fingerHelper == null) {
@@ -61,7 +61,7 @@ public class FingerHelper {
      * @return
      */
     public FingerCallback setFingerListener(Context context) {
-        final DialogFragment customFingerDialog = new CustomFingerDialog();
+        customFingerDialog = new CustomFingerDialog();
         customFingerDialog.setCancelable(false);
         customFingerDialog.show(((FragmentActivity)context).getSupportFragmentManager(), "fingerDialog");
         final FingerprintManagerCompat manager = FingerprintManagerCompat.from(context);
@@ -73,6 +73,13 @@ public class FingerHelper {
         return fingerCallback;
     }
 
+    /**
+     * 返回CustomFingerDialog对象
+     * @return
+     */
+    public CustomFingerDialog getDialogFragment(){
+        return customFingerDialog;
+    }
     /**
      * 取消指纹监听
      */

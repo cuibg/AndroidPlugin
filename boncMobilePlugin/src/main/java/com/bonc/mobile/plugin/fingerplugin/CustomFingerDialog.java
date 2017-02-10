@@ -19,7 +19,7 @@ import com.bonc.mobile.plugin.utils.MResource;
  * @author cuibg
  */
 public class CustomFingerDialog extends DialogFragment implements View.OnClickListener {
-
+    private FingerDialogAction fingerDialogAction;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -34,6 +34,7 @@ public class CustomFingerDialog extends DialogFragment implements View.OnClickLi
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         getView().findViewById(MResource.getIdByName(getContext(),"id","fingure_cancle_text")).setOnClickListener(this);
+
     }
 
     @Override
@@ -50,6 +51,9 @@ public class CustomFingerDialog extends DialogFragment implements View.OnClickLi
         if (id == MResource.getIdByName(getContext(),"id","fingure_cancle_text")) {
             FingerHelper fingerInstance = FingerHelper.getFingerInstance();
             fingerInstance.cancelFingerListener();
+            if(fingerDialogAction != null){
+                fingerDialogAction.setDialogCancleAction();
+            }
             this.dismiss();
         }
     }
@@ -60,5 +64,12 @@ public class CustomFingerDialog extends DialogFragment implements View.OnClickLi
         this.dismiss();
         FingerHelper fingerInstance = FingerHelper.getFingerInstance();
         fingerInstance.cancelFingerListener();
+    }
+
+    public interface FingerDialogAction{
+        void setDialogCancleAction();
+    }
+    public void setFingerDialogAction(FingerDialogAction fingerDialogAction){
+        this.fingerDialogAction = fingerDialogAction;
     }
 }
