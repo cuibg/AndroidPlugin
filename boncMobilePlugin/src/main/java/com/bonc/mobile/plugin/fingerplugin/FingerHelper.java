@@ -26,6 +26,10 @@ public class FingerHelper {
     private CancellationSignal mCancellationSignal;
     private CustomFingerDialog customFingerDialog;
 
+    /**
+     * 得到FingerHelper单例
+     * @return
+     */
     public static FingerHelper getFingerInstance() {
         if (fingerHelper == null) {
             fingerHelper = new FingerHelper();
@@ -34,7 +38,7 @@ public class FingerHelper {
     }
 
     /**
-     * 判断手机是否支持指纹识别或者是否有指纹
+     * 判断手机是否支持指纹识别或者是否已经录入指纹
      *
      * @return
      */

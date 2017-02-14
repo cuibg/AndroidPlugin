@@ -29,7 +29,7 @@ public class SmsContentObserver extends ContentObserver {
     }
 
     /**
-     * 如果没有指定号码，mobileNumber需要传null
+     * 如果没有指定号码，mobileNumber需要传null或者是""
      *
      * @param context
      * @param handler
