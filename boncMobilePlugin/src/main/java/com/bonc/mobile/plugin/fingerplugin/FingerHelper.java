@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.hardware.fingerprint.FingerprintManager;
 import android.os.Build;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.hardware.fingerprint.FingerprintManagerCompat;
 import android.support.v4.os.CancellationSignal;
@@ -24,7 +25,7 @@ import static android.content.Context.FINGERPRINT_SERVICE;
 public class FingerHelper {
     private static FingerHelper fingerHelper = null;
     private CancellationSignal mCancellationSignal;
-    private CustomFingerDialog customFingerDialog;
+//    private CustomFingerDialog customFingerDialog;
 
     /**
      * 得到FingerHelper单例
@@ -64,10 +65,7 @@ public class FingerHelper {
      * @param context
      * @return
      */
-    public FingerCallback setFingerListener(Context context) {
-        customFingerDialog = new CustomFingerDialog();
-        customFingerDialog.setCancelable(false);
-        customFingerDialog.show(((FragmentActivity)context).getSupportFragmentManager(), "fingerDialog");
+    public FingerCallback setFingerListener(Context context, DialogFragment customFingerDialog) {
         final FingerprintManagerCompat manager = FingerprintManagerCompat.from(context);
         final FingerCallback fingerCallback = new FingerCallback(context, customFingerDialog);
         if (mCancellationSignal == null) {
@@ -78,13 +76,6 @@ public class FingerHelper {
     }
 
     /**
-     * 返回CustomFingerDialog对象
-     * @return
-     */
-    public CustomFingerDialog getDialogFragment(){
-        return customFingerDialog;
-    }
-    /**
      * 取消指纹监听
      */
     public void cancelFingerListener() {
@@ -92,6 +83,17 @@ public class FingerHelper {
             mCancellationSignal.cancel();
             mCancellationSignal = null;
         }
+    }
+
+    /**
+     * 返回CustomFingerDialog对象
+     * @return
+     */
+    public CustomFingerDialog showAndReturnDialogFragment(Context context){
+        CustomFingerDialog customFingerDialog = new CustomFingerDialog();
+        customFingerDialog.setCancelable(false);
+        customFingerDialog.show(((FragmentActivity)context).getSupportFragmentManager(), "fingerDialog");
+        return customFingerDialog;
     }
 
     /**
