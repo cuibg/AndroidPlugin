@@ -25,7 +25,6 @@ import static android.content.Context.FINGERPRINT_SERVICE;
 public class FingerHelper {
     private static FingerHelper fingerHelper = null;
     private CancellationSignal mCancellationSignal;
-//    private CustomFingerDialog customFingerDialog;
 
     /**
      * 得到FingerHelper单例
