@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center" />
 
-    <com.bonc.zxing.view.ViewfinderView
+    <com.bonc.mobile.plugin.scancoder.zxing.view.ViewfinderView
         android:id="@+id/viewfinder_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
@@ -33,6 +33,7 @@
             android:layout_height="35dp"
             android:layout_alignParentRight="true"
             android:layout_marginRight="10dp"
+            android:background="@drawable/qrcode_flash"
             android:onClick="IfOpenLight" />
 
 

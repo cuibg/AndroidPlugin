@@ -38,7 +38,7 @@ public class WebPluginKey {
 
 
 
-    public static final String cameraAction = "camera";
+    public static final String cameraAction = "capture_activity_layout";
     public static final String cameraTakeCom  = "takePhoto";
     public static final String cameraDataURL  = "dataURL";
     public static final String cameraType  = "type";

@@ -12,12 +12,11 @@ import android.webkit.WebView;
 
 import com.baidu.location.LocationClient;
 import com.bonc.mobile.plugin.choosestaff.DisplayDeptActivity;
+import com.bonc.mobile.plugin.scancoder.CaptureActivity;
 
 import org.json.JSONException;
 
 import java.util.List;
-
-import rock.qrcodelibrary.CaptureActivity;
 
 import static android.app.Activity.RESULT_CANCELED;
 import static com.bonc.mobile.plugin.web.WebPluginKey.CAMERA_REQUEST_CODE;

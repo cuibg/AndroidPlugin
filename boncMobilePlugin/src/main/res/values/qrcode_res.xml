@@ -50,4 +50,9 @@
     <item name="return_scan_result" type="id"/>
     <item name="search_book_contents_failed" type="id"/>
     <item name="search_book_contents_succeeded" type="id"/>
+
+    <string name="qrcode_scan_error">扫描失败</string>
+    <string name="qrcode_find_img_error">图片没有找到</string>
+    <string name="qrcode_scaning_prompt">正在扫描</string>
+    <string name="qrcode_analysy_error">解析错误!</string>
 </resources>

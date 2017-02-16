@@ -1,10 +1,10 @@
-//apply plugin: 'com.android.application'
-apply plugin: 'com.android.library'
+apply plugin: 'com.android.application'
+//apply plugin: 'com.android.library'
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.1"
     defaultConfig {
-//        applicationId "com.bonc.mobile.plugin"
+        applicationId "com.bonc.mobile.plugin"
         minSdkVersion 9
         targetSdkVersion 21
         versionCode 1
@@ -32,8 +32,7 @@ dependencies {
     provided files('libs/volley.jar')
     provided files('libs/locSDK_6.13.jar')
     provided files('libs/android-support-v7-recyclerview.jar')
-    provided files('libs/core.jar')
+    compile files('libs/core.jar')
     compile 'com.android.support:appcompat-v7:23.0.0'
-    compile (name: 'zxing-release',ext:'aar')
 }
 
