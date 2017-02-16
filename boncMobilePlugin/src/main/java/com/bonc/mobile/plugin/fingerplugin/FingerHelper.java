@@ -53,9 +53,8 @@ public class FingerHelper {
                 }else if(manager.isHardwareDetected()){
                     if(manager.hasEnrolledFingerprints()){
                         return 0;
-                    }else{
-                        return 1;
                     }
+                    return 1;
                 };
             }
         } catch (ClassNotFoundException e) {

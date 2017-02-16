@@ -41,18 +41,18 @@
     <color name="viewfinder_scan_prompt_color">#ffffffff</color> <!--扫描提示语的字体颜色-->
     <color name="viewfinder_scan_frame_horn_color">#ff00ff00</color> <!--扫描框四个圆角的颜色-->
     <!--二维码扫描用到的id-->
-    <item name="auto_focus" type="id"/>
-    <item name="decode" type="id"/>
-    <item name="decode_failed" type="id"/>
-    <item name="decode_succeeded" type="id"/>
-    <item name="encode_failed" type="id"/>
-    <item name="encode_succeeded" type="id"/>
-    <item name="launch_product_query" type="id"/>
-    <item name="quit" type="id"/>
-    <item name="restart_preview" type="id"/>
-    <item name="return_scan_result" type="id"/>
-    <item name="search_book_contents_failed" type="id"/>
-    <item name="search_book_contents_succeeded" type="id"/>
+    <item name="auto_focus" type="id" />
+    <item name="decode" type="id" />
+    <item name="decode_failed" type="id" />
+    <item name="decode_succeeded" type="id" />
+    <item name="encode_failed" type="id" />
+    <item name="encode_succeeded" type="id" />
+    <item name="launch_product_query" type="id" />
+    <item name="quit" type="id" />
+    <item name="restart_preview" type="id" />
+    <item name="return_scan_result" type="id" />
+    <item name="search_book_contents_failed" type="id" />
+    <item name="search_book_contents_succeeded" type="id" />
     <!--二维码扫描用的string-->
     <string name="qrcode_scan_error">扫描失败</string>
     <string name="qrcode_find_img_error">图片没有找到</string>

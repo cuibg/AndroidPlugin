@@ -8,6 +8,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bonc.mobile.plugin.scancoder.CaptureActivity;
+import com.bonc.mobile.plugin.scancoder.QRcodeKeys;
 import com.bonc.mobile.plugin.utils.MResource;
 
 public class TestActivity extends AppCompatActivity {
@@ -32,7 +33,7 @@ public class TestActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(resultCode==RESULT_OK){
-            String result=data.getStringExtra("result");
+            String result=data.getStringExtra(QRcodeKeys.qrResultKey);
             Toast.makeText(this,result,Toast.LENGTH_LONG).show();
         }
     }

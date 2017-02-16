@@ -85,7 +85,7 @@ public class CaptureActivity extends Activity implements Callback {
 	@Override
 	protected void onResume() {
 		super.onResume();
-		SurfaceView surfaceView = (SurfaceView) findViewById(R.id.qrcode_preview_view);
+		SurfaceView surfaceView = (SurfaceView) findViewById(R.id.qrcoder_preview_view);
 		SurfaceHolder surfaceHolder = surfaceView.getHolder();
 		if (hasSurface) {
 			initCamera(surfaceHolder);
@@ -152,8 +152,8 @@ public class CaptureActivity extends Activity implements Callback {
 			matrix.postScale(0.5f, 0.5f);
 			Bitmap bit = Bitmap.createBitmap(barcode, 0, 0, barcode.getWidth(),
 					barcode.getHeight(), matrix, true);
-			bundle.putString("result", resultString);
-			bundle.putParcelable("bitmap", bit);
+			bundle.putString(QRcodeKeys.qrResultKey, resultString);
+			bundle.putParcelable(QRcodeKeys.qrBitmapKey, bit);
 			resultIntent.putExtras(bundle);
 			this.setResult(RESULT_OK, resultIntent);
 		}
@@ -164,7 +164,6 @@ public class CaptureActivity extends Activity implements Callback {
 	 * 获取带二维码的相片进行扫描
 	 */
 	public void pickPictureFromAblum(View v) {
-		// 打开手机中的相册
 		Intent innerIntent = new Intent(Intent.ACTION_GET_CONTENT);
 		innerIntent.setType("image/*");
 		Intent wrapperIntent = Intent.createChooser(innerIntent, "选择二维码图片");
