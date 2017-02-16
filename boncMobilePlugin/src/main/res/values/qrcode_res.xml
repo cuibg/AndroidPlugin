@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><!--二维码扫描所用到的所有颜色-->
+<?xml version="1.0" encoding="utf-8"?><!--二维码扫描所用到的color,id,string-->
 <resources>
     <color name="white">#fff</color>
     <color name="black">#000000</color>
@@ -37,6 +37,9 @@
     <color name="header">#58567D</color>
     <color name="grgray">#686868</color>
 
+
+    <color name="viewfinder_scan_prompt_color">#ffffffff</color> <!--扫描提示语的字体颜色-->
+    <color name="viewfinder_scan_frame_horn_color">#ff00ff00</color> <!--扫描框四个圆角的颜色-->
     <!--二维码扫描用到的id-->
     <item name="auto_focus" type="id"/>
     <item name="decode" type="id"/>
@@ -50,9 +53,11 @@
     <item name="return_scan_result" type="id"/>
     <item name="search_book_contents_failed" type="id"/>
     <item name="search_book_contents_succeeded" type="id"/>
-
+    <!--二维码扫描用的string-->
     <string name="qrcode_scan_error">扫描失败</string>
     <string name="qrcode_find_img_error">图片没有找到</string>
     <string name="qrcode_scaning_prompt">正在扫描</string>
     <string name="qrcode_analysy_error">解析错误!</string>
+
+    <string name="qrcode_scan_prompt_content">将条码/二维码放入框内,即可自动扫描</string>
 </resources>

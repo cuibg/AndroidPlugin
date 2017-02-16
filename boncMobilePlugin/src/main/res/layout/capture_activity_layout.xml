@@ -4,7 +4,7 @@
     android:layout_height="fill_parent" >
 
     <SurfaceView
-        android:id="@+id/preview_view"
+        android:id="@+id/qrcode_preview_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center" />
@@ -21,7 +21,7 @@
         android:orientation="horizontal" >
 
         <Button
-            android:id="@+id/btn_cancel_scan"
+            android:id="@+id/qrcoder_btn_cancel_scan"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_marginLeft="10dp"

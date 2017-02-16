@@ -20,7 +20,6 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.Typeface;
@@ -167,7 +166,7 @@ public final class ViewfinderView extends View {
 		} else {
 
 			//画扫描框边上的角，总共8个部分
-			paint.setColor(Color.GREEN);
+			paint.setColor(getResources().getColor(R.color.viewfinder_scan_frame_horn_color));
 			canvas.drawRect(frame.left, frame.top, frame.left + ScreenRate,
 					frame.top + CORNER_WIDTH, paint);
 			canvas.drawRect(frame.left, frame.top, frame.left + CORNER_WIDTH, frame.top
@@ -200,11 +199,11 @@ public final class ViewfinderView extends View {
 			canvas.drawBitmap(((BitmapDrawable)(getResources().getDrawable(R.drawable.qrcode_scan_line))).getBitmap(), null, lineRect, paint);
 
 			//画扫描框下面的字
-			paint.setColor(Color.WHITE);
+			paint.setColor(getResources().getColor(R.color.viewfinder_scan_prompt_color));
 			paint.setTextSize(TEXT_SIZE * density);
 			paint.setAlpha(0x40);
 			paint.setTypeface(Typeface.create("System", Typeface.BOLD));
-			String text = "将条码/二维码放入框内,即可自动扫描";
+			String text = getResources().getString(R.string.qrcode_scan_prompt_content);
 			float textWidth = paint.measureText(text);
 
 			canvas.drawText(text, (width - textWidth)/2, (float) (frame.bottom + (float)TEXT_PADDING_TOP *density), paint);

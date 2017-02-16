@@ -81,7 +81,7 @@ public final class CameraManager {
 	/**
 	 * Initializes this static object with the Context of the calling Activity.
 	 * 
-	 * @param pcontext
+	 * @param context
 	 *            The Activity which wants to use the capture_activity_layout.
 	 */
 	public static void init(Context context) {
@@ -192,7 +192,7 @@ public final class CameraManager {
 	 * will arrive as byte[] in the message.obj field, with width and height
 	 * encoded as message.arg1 and message.arg2, respectively.
 	 * 
-	 * @param handlerletter
+	 * @param handler
 	 *            The handlerletter to send the message to.
 	 * @param message
 	 *            The what field of the message to be sent.
@@ -211,7 +211,7 @@ public final class CameraManager {
 	/**
 	 * Asks the capture_activity_layout hardware to perform an autofocus.
 	 * 
-	 * @param handlerletter
+	 * @param handler
 	 *            The Handler to notify when the autofocus completes.
 	 * @param message
 	 *            The message to deliver.
@@ -238,18 +238,18 @@ public final class CameraManager {
 			if (camera == null) {
 				return null;
 			}
-			int width = screenResolution.x * 3 / 4;
-			if (width < MIN_FRAME_WIDTH) {
-				width = MIN_FRAME_WIDTH;
-			} else if (width > MAX_FRAME_WIDTH) {
-				width = MAX_FRAME_WIDTH;
-			}
-			int height = screenResolution.y * 3 / 4;
-			if (height < MIN_FRAME_HEIGHT) {
-				height = MIN_FRAME_HEIGHT;
-			} else if (height > MAX_FRAME_HEIGHT) {
-				height = MAX_FRAME_HEIGHT;
-			}
+			int width = screenResolution.x * 3/ 4;
+//			if (width < MIN_FRAME_WIDTH) {
+//				width = MIN_FRAME_WIDTH;
+//			} else if (width > MAX_FRAME_WIDTH) {
+//				width = MAX_FRAME_WIDTH;
+//			}
+			int height = width;
+//			if (height < MIN_FRAME_HEIGHT) {
+//				height = MIN_FRAME_HEIGHT;
+//			} else if (height > MAX_FRAME_HEIGHT) {
+//				height = MAX_FRAME_HEIGHT;
+//			}
 			int leftOffset = (screenResolution.x - width) / 2;
 			int topOffset = (screenResolution.y - height) / 2;
 			framingRect = new Rect(leftOffset, topOffset, leftOffset + width,
