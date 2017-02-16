@@ -39,24 +39,30 @@ public class FingerHelper {
     }
 
     /**
-     * 判断手机是否支持指纹识别或者是否已经录入指纹
+     * 判断手机上是否有指纹
      *
-     * @return
+     * @return 0表示手机支持指纹而且已经录入指纹;1表示指手机支持指纹但是没有录入指纹;2表示手机不支持指纹功能
      */
     @TargetApi(Build.VERSION_CODES.M)
-    public boolean checkSupportFinger(Context context) {
+    public int checkSupportFinger(Context context) {
         try {
             Class.forName("android.hardware.fingerprint.FingerprintManager");
             FingerprintManager manager = (FingerprintManager) context.getSystemService(FINGERPRINT_SERVICE);
             if (ActivityCompat.checkSelfPermission(context, Manifest.permission.USE_FINGERPRINT) == PackageManager.PERMISSION_GRANTED) {
-                if (manager.isHardwareDetected() && manager.hasEnrolledFingerprints()) {
-                    return true;
-                }
+                if(!manager.isHardwareDetected()){
+                    return 2;
+                }else if(manager.isHardwareDetected()){
+                    if(manager.hasEnrolledFingerprints()){
+                        return 0;
+                    }else{
+                        return 1;
+                    }
+                };
             }
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        return false;
+        return 2;
     }
 
     /**

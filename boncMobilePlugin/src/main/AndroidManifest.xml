@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.bonc.mobile.plugin">
-    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
-    <uses-permission android:name="android.permission.READ_SMS" />
+
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" /><!--指纹识别权限-->
+
+    <uses-permission android:name="android.permission.READ_SMS" /><!--读取短信权限-->
+
+    <uses-permission android:name="android.permission.CAMERA"/><!--照相机权限-->
+    <uses-permission android:name="android.permission.READ_CONTACTS"/><!--读取联系人-->
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"/><!--写联系人-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/><!--读取手机信息-->
+
     <uses-sdk
         android:minSdkVersion="9"
         android:targetSdkVersion="21" />

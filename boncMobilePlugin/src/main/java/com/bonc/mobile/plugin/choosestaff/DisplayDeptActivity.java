@@ -37,6 +37,7 @@ public class DisplayDeptActivity extends ChooseStaffBase implements View.OnClick
     private final int searchRequestCode = 0x0002;//跳转查找人请求码
     private View gradeHeadNumberRel;
     private List<String> checkedUserIdList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,10 +58,10 @@ public class DisplayDeptActivity extends ChooseStaffBase implements View.OnClick
     private void getIntentData() {
         Intent intent = getIntent();
         if (intent != null) {
-            nodeDatasMap = (Map<String,Node>) intent.getSerializableExtra(GradeViewHelper.nodeMap);//构造后的数据模型
-            checkedUserIdList = (List<String>)intent.getSerializableExtra(GradeViewHelper.getCheckedListKey);//选中的list集合
+            nodeDatasMap = (Map<String, Node>) intent.getSerializableExtra(GradeViewHelper.nodeMap);//构造后的数据模型
+            checkedUserIdList = (List<String>) intent.getSerializableExtra(GradeViewHelper.getCheckedListKey);//选中的list集合
             selectType = intent.getIntExtra(GradeViewHelper.chooseType, GradeViewHelper.singleType);
-            if(checkedUserIdList!=null&&(GradeViewHelper.singleType!=selectType)){
+            if (checkedUserIdList != null && !checkedUserIdList.isEmpty() && (GradeViewHelper.singleType != selectType)) {
                 int size = checkedUserIdList.size();
                 for (int i = 0; i < size; i++) {
                     String innerId = checkedUserIdList.get(i);
@@ -111,7 +112,7 @@ public class DisplayDeptActivity extends ChooseStaffBase implements View.OnClick
         recyclerView = ((RecyclerView) grade_view.getRecycleView());//列表
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         recyclerView.setOverScrollMode(View.OVER_SCROLL_NEVER);
-        gradeViewAdapter = new GradeViewAdapter(this, grade_view, nodeDatasMap,mVImageLoader, selectType, GradeViewHelper.chooseStaffActivity);
+        gradeViewAdapter = new GradeViewAdapter(this, grade_view, nodeDatasMap, mVImageLoader, selectType, GradeViewHelper.chooseStaffActivity);
         gradeViewAdapter.setGroupBackImageListener();
         recyclerView.setAdapter(gradeViewAdapter);
     }
@@ -170,18 +171,18 @@ public class DisplayDeptActivity extends ChooseStaffBase implements View.OnClick
             grade_view.getNumberDeatilText().setText("已选择" + size + "人");
             TextView numberText = grade_view.getNumberText();
             numberText.setVisibility(View.VISIBLE);
-            if(size<100){
+            if (size < 100) {
                 numberText.setText(String.valueOf(size));
-            }else{
+            } else {
                 numberText.setText("99+");
             }
             gradeHeadNumberRel.setClickable(true);
-            GradeViewHelper.setBackgroudDra(grade_bottom_image,  ChooseStaffResKey.bottomCheckDraKey,context);
+            GradeViewHelper.setBackgroudDra(grade_bottom_image, ChooseStaffResKey.bottomCheckDraKey, context);
         } else {
             grade_view.getNumberDeatilText().setText("");
             grade_view.getNumberText().setVisibility(View.GONE);
             gradeHeadNumberRel.setClickable(false);
-            GradeViewHelper.setBackgroudDra(grade_bottom_image, ChooseStaffResKey.bottomUnCheckDraKey,context);
+            GradeViewHelper.setBackgroudDra(grade_bottom_image, ChooseStaffResKey.bottomUnCheckDraKey, context);
         }
     }
 
@@ -190,7 +191,7 @@ public class DisplayDeptActivity extends ChooseStaffBase implements View.OnClick
     public void onDestroy() {
         super.onDestroy();
         GradeViewHelper.haveCheckedList.clear();
-        GradeViewHelper.currentResources=null;
+        GradeViewHelper.currentResources = null;
         GradeViewHelper.packageName = null;
     }
 }
