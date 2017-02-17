@@ -96,18 +96,6 @@ public class FingerHelper {
     }
 
     /**
-     * 返回CustomFingerDialog对象
-     *
-     * @return
-     */
-    public CustomFingerDialog showAndReturnDialogFragment(Context context) {
-        CustomFingerDialog customFingerDialog = new CustomFingerDialog();
-        customFingerDialog.setCancelable(false);
-        customFingerDialog.show(((FragmentActivity) context).getSupportFragmentManager(), "fingerDialog");
-        return customFingerDialog;
-    }
-
-    /**
      * 显示锁屏密码
      *
      * @param context
@@ -127,11 +115,22 @@ public class FingerHelper {
                         ((Activity) context).startActivityForResult(intent, FingerKeys.gotoScreenKey);
                         return 0;
                     }
-                    ;
                 }
             }
         }
         return 2;
+    }
+
+    /**
+     * 返回CustomFingerDialog对象
+     *
+     * @return
+     */
+    public CustomFingerDialog showAndReturnDialogFragment(Context context) {
+        CustomFingerDialog customFingerDialog = new CustomFingerDialog();
+        customFingerDialog.setCancelable(false);
+        customFingerDialog.show(((FragmentActivity) context).getSupportFragmentManager(), "fingerDialog");
+        return customFingerDialog;
     }
 
     /**
