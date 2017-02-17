@@ -2,7 +2,10 @@ package com.bonc.mobile.plugin.fingerplugin;
 
 import android.Manifest;
 import android.annotation.TargetApi;
+import android.app.Activity;
+import android.app.KeyguardManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.hardware.fingerprint.FingerprintManager;
 import android.os.Build;
@@ -13,6 +16,8 @@ import android.support.v4.hardware.fingerprint.FingerprintManagerCompat;
 import android.support.v4.os.CancellationSignal;
 import android.view.View;
 import android.view.animation.TranslateAnimation;
+
+import com.bonc.mobile.plugin.utils.MResource;
 
 import static android.content.Context.FINGERPRINT_SERVICE;
 
@@ -28,6 +33,7 @@ public class FingerHelper {
 
     /**
      * 得到FingerHelper单例
+     *
      * @return
      */
     public static FingerHelper getFingerInstance() {
@@ -48,14 +54,14 @@ public class FingerHelper {
             Class.forName("android.hardware.fingerprint.FingerprintManager");
             FingerprintManager manager = (FingerprintManager) context.getSystemService(FINGERPRINT_SERVICE);
             if (ActivityCompat.checkSelfPermission(context, Manifest.permission.USE_FINGERPRINT) == PackageManager.PERMISSION_GRANTED) {
-                if(!manager.isHardwareDetected()){
+                if (!manager.isHardwareDetected()) {
                     return 2;
-                }else if(manager.isHardwareDetected()){
-                    if(manager.hasEnrolledFingerprints()){
+                } else {
+                    if (manager.hasEnrolledFingerprints()) {
                         return 0;
                     }
                     return 1;
-                };
+                }
             }
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -91,13 +97,41 @@ public class FingerHelper {
 
     /**
      * 返回CustomFingerDialog对象
+     *
      * @return
      */
-    public CustomFingerDialog showAndReturnDialogFragment(Context context){
+    public CustomFingerDialog showAndReturnDialogFragment(Context context) {
         CustomFingerDialog customFingerDialog = new CustomFingerDialog();
         customFingerDialog.setCancelable(false);
-        customFingerDialog.show(((FragmentActivity)context).getSupportFragmentManager(), "fingerDialog");
+        customFingerDialog.show(((FragmentActivity) context).getSupportFragmentManager(), "fingerDialog");
         return customFingerDialog;
+    }
+
+    /**
+     * 显示锁屏密码
+     *
+     * @param context
+     * @return 0表示跳转到锁屏界面;1表示没有设置手势;2表示其他原因错误
+     */
+    public int showAuthenticationScreen(Context context) {
+        KeyguardManager keyguardManager = (KeyguardManager) context.getSystemService(Context.KEYGUARD_SERVICE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            if (!keyguardManager.isKeyguardSecure()) {
+                return 1;
+            } else {
+                Intent intent = null;
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+                    intent = keyguardManager.createConfirmDeviceCredentialIntent(context.getResources().getString(MResource.getIdByName(context, "string", "finger_screen_title")),
+                            context.getResources().getString(MResource.getIdByName(context, "string", "finger_screen_description")));
+                    if (intent != null) {
+                        ((Activity) context).startActivityForResult(intent, FingerKeys.gotoScreenKey);
+                        return 0;
+                    }
+                    ;
+                }
+            }
+        }
+        return 2;
     }
 
     /**

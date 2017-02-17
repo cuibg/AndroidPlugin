@@ -6,4 +6,7 @@
     <string name="finger_verification">验证已有指纹</string>
     <string name="finger_cancel">取消</string>
     <string name="finger_retry">再试一次</string>
+
+    <string name="finger_screen_title">finger</string>
+    <string name="finger_screen_description">指纹</string>
 </resources>
