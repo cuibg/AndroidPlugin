@@ -46,7 +46,7 @@ public class FingerHelper {
     /**
      * 判断手机上是否有指纹
      *
-     * @return 0表示手机支持指纹而且已经录入指纹;1表示指手机支持指纹但是没有录入指纹;2表示手机不支持指纹功能
+     * @return 0表示手机支持指纹而且已经录入指纹;1表示指手机支持指纹但是没有录入指纹;2表示手机不支持指纹功能;3当前手机版本低于6.0
      */
     @TargetApi(Build.VERSION_CODES.M)
     public int checkSupportFinger(Context context) {
@@ -66,7 +66,7 @@ public class FingerHelper {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        return 2;
+        return 3;
     }
 
     /**
