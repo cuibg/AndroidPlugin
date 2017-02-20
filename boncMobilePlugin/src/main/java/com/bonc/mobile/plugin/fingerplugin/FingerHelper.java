@@ -46,7 +46,7 @@ public class FingerHelper {
     /**
      * 判断手机上是否有指纹
      *
-     * @return 0表示手机支持指纹而且已经录入指纹;1表示指手机支持指纹但是没有录入指纹;2表示手机不支持指纹功能;3当前手机版本低于6.0
+     * @return 0表示手机支持指纹而且已经录入指纹;1表示指手机支持指纹但是没有录入指纹;2表示手机不支持指纹功能;3表示当前手机版本低于6.0
      */
     @TargetApi(Build.VERSION_CODES.M)
     public int checkSupportFinger(Context context) {
@@ -109,7 +109,8 @@ public class FingerHelper {
             } else {
                 Intent intent = null;
                 if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-                    intent = keyguardManager.createConfirmDeviceCredentialIntent(context.getResources().getString(MResource.getIdByName(context, "string", "finger_screen_title")),
+                    intent = keyguardManager.createConfirmDeviceCredentialIntent(
+                            context.getResources().getString(MResource.getIdByName(context, "string", "finger_screen_title")),
                             context.getResources().getString(MResource.getIdByName(context, "string", "finger_screen_description")));
                     if (intent != null) {
                         ((Activity) context).startActivityForResult(intent, FingerKeys.gotoScreenKey);
