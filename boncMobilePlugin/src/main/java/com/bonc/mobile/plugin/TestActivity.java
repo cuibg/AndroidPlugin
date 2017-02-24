@@ -1,9 +1,11 @@
 package com.bonc.mobile.plugin;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +36,8 @@ public class TestActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if(resultCode==RESULT_OK){
             String result=data.getStringExtra(QRcodeKeys.qrResultKey);
+            Bitmap bitmap = (Bitmap) data.getParcelableExtra(QRcodeKeys.qrBitmapKey);
+            ((ImageView) findViewById(R.id.imageView)).setImageBitmap(bitmap);
             Toast.makeText(this,result,Toast.LENGTH_LONG).show();
         }
     }

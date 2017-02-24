@@ -44,15 +44,14 @@ public class WebPluginHelper {
 
     /**
      * 拿到WebPluginHelper对象
+     *
      * @return
      */
     public static WebPluginHelper getInstance() {
         if (webPluginHelper == null) {
             webPluginHelper = new WebPluginHelper();
-            return webPluginHelper;
-        } else {
-            return webPluginHelper;
         }
+        return webPluginHelper;
     }
 
     /**

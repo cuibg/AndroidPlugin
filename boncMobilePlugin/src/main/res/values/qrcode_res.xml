@@ -54,10 +54,11 @@
     <item name="search_book_contents_failed" type="id" />
     <item name="search_book_contents_succeeded" type="id" />
     <!--二维码扫描用的string-->
+    <string name="qrcoder_scan_album">相册</string>
     <string name="qrcode_scan_error">扫描失败</string>
     <string name="qrcode_find_img_error">图片没有找到</string>
     <string name="qrcode_scaning_prompt">正在扫描</string>
     <string name="qrcode_analysy_error">解析错误!</string>
-
+    <string name="qrcode_scan_file_error">浏览文件出错</string>
     <string name="qrcode_scan_prompt_content">将条码/二维码放入框内,即可自动扫描</string>
 </resources>

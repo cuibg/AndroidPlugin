@@ -28,13 +28,23 @@
             android:gravity="center" />
 
         <Button
-            android:id="@+id/openLight"
+            android:id="@+id/qrcoder_btn_openlight"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_alignParentRight="true"
             android:layout_marginRight="10dp"
             android:background="@drawable/qrcode_flash"
-            android:onClick="IfOpenLight" />
+            android:onClick="onClick" />
+
+        <Button
+            android:id="@+id/qrcoder_ablum_choose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@id/qrcoder_btn_openlight"
+            android:background="@null"
+            android:text="@string/qrcoder_scan_album"
+            android:onClick="onClick"/>
 
 
     </RelativeLayout>
