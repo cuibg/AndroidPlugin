@@ -118,16 +118,20 @@ public class GradeViewAdapter extends RecyclerView.Adapter<GradeViewAdapter.Grad
                 }
             });
             // 加载部门显示图片
-            String iconUrl = node.getIconUrl();
+            final String iconUrl = node.getIconUrl();
             //先于加载默认图标
+            gradeHolder.group_image.setTag(iconUrl);
             GradeViewHelper.setImageDra(gradeHolder.group_image, ChooseStaffResKey.adapterGroupIvKey,context);
             if (!TextUtils.isEmpty(iconUrl)) {
                 imageLoader.get(iconUrl, new ImageLoader.ImageListener() {
                     @Override
                     public void onResponse(ImageLoader.ImageContainer imageContainer, boolean b) {
-                        Bitmap bitmapContainer = imageContainer.getBitmap();
-                        if (bitmapContainer != null) {
-                            gradeHolder.group_image.setImageDrawable(new BitmapDrawable(bitmapContainer));
+                        String tag = gradeHolder.group_image.getTag().toString();
+                        if(TextUtils.equals(iconUrl,tag)){
+                            Bitmap bitmapContainer = imageContainer.getBitmap();
+                            if (bitmapContainer != null) {
+                                gradeHolder.group_image.setImageDrawable(new BitmapDrawable(bitmapContainer));
+                            }
                         }
                     }
 
@@ -196,15 +200,19 @@ public class GradeViewAdapter extends RecyclerView.Adapter<GradeViewAdapter.Grad
                 });
             }
             //人员图片
-            String iconUrl = node.getIconUrl();
+            final String iconUrl = node.getIconUrl();
+            gradeHolder.group_image.setTag(iconUrl);
             GradeViewHelper.setImageDra(gradeHolder.person_image, ChooseStaffResKey.adapterUserIvKey,context);
             if (!TextUtils.isEmpty(iconUrl)) {
                 imageLoader.get(iconUrl, new ImageLoader.ImageListener() {
                     @Override
                     public void onResponse(ImageLoader.ImageContainer imageContainer, boolean b) {
-                        Bitmap bitmapContainer = imageContainer.getBitmap();
-                        if (bitmapContainer != null) {
-                            gradeHolder.person_image.setImageDrawable(new BitmapDrawable(bitmapContainer));
+                        String tag = gradeHolder.person_image.getTag().toString();
+                        if(TextUtils.equals(tag,iconUrl)){
+                            Bitmap bitmapContainer = imageContainer.getBitmap();
+                            if (bitmapContainer != null) {
+                                gradeHolder.person_image.setImageDrawable(new BitmapDrawable(bitmapContainer));
+                            }
                         }
                     }
 
